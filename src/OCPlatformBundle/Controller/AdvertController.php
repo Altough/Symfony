@@ -2,7 +2,7 @@
 
 namespace OC\PlatformBundle\Controlleur;
 
-use Symfony\ComponentHttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Response;
 class Advertcontroller
 {
   public function indexAction()
