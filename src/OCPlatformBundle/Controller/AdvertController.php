@@ -12,9 +12,15 @@ class AdvertController extends Controller
     return new Response($content);
   }
 
-  public function byeAction()
+  public function viewAction()
   {
-    $content = $this->get('templating')->render('OCPlatformBundle:Advert:bye.html.twig', array('nom'=>'World'));
+    $content = $this->get('templating')->render('OCPlatformBundle:Advert:view.html.twig');
+    return new Response($content);
+  }
+
+  public function addAction()
+  {
+    $content = $this->get('templating')->render('OCPlatformBundle:Advert:add.html.twig');
     return new Response($content);
   }
 }
