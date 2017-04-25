@@ -1,10 +1,21 @@
 <DOCTYPE HTML>
 <Html>
   <Head>
-    <Title> Bienvenue </Title>
+    <Title> Affichage de l'annonce {{ id }} </Title>
   </Head>
   <body>
-    <h1> Hello World </h1>
-    <p> le hello et j'en passe</p>
+    <h1>Affichage de l'annonce n°{{ id }} !</h1>
+
+    <div>
+
+      {% for message in app.session.flashbag.get('info') %}
+      <p> Message flash : {{ message }}</p>
+      {% endfor %}
+    </div>
+
+    <p>
+      Ici nous pourrons lire l'annonce ayant comme id : {{ id }}<br/>
+      Mais pour l'instant, nous ne savons pas encore le faire, cela viendra !
+    </p>
   </body>
 </Html>
