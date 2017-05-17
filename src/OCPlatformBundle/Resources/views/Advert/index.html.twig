@@ -1,11 +1,24 @@
-<DOCTYPE HTML>
-<Html>
-  <Head>
-    <Title> Bienvenue </Title>
-  </Head>
-  <body>
-    <h1> notre home page </h1>
-    <a href="{{ path('oc_platform_view', { 'id':'0'}) }}"> Lien vers
-      l'annonce d'id {{ '0' }}
-  </body>
-</Html>
+{% extends 'OCPlatformBundle::layout.html.twig' %}
+
+{% block title %}
+  Accueil - {{ parent() }}
+{% endblock %}
+
+{% block ocplatform_body %}
+   <h2>Liste des annonces</h2>
+
+   <ul>
+     {% for advert in listAdverts %}
+        <li>
+          <a href="{{ path('oc_platform_view', {'id': advert.id}) }}">
+            {{ advert.title }}
+          </a>
+          par {{ advert.author }},
+          le {{ advert.date|date('d/m/Y') }}
+        </li>
+      {% else %}
+        <li>Pas (encore !) d'annonces</li>
+      {% endfor %}
+    </ul>
+
+{% endblock %}
